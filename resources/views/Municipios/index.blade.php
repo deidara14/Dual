@@ -1,36 +1,37 @@
-@extends("Layouts.layout")
-@section("title","Sexos")
+@extends("layouts.layout")
+@section("title","Municipios")
 
 @section("content")
     <div class="row justify-content-md-center">
         <div class="col">
-            <a class="btn btn-success" href="{{url("sexos/create")}}"><i class="fa fa-plus"></i></a>
+            <a class="btn btn-success" href="{{url("municipios/create")}}"><i class="fa fa-plus"></i></a>
         </div>
     </div>
+    <a href="{{url("municipios/create")}}">nuevo</a>
     <div class="row justify-content-md-center">
         <div class="col-8">
             <table class="table">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Sexos</th>
+                    <th>Municipio</th>
                     <th colspan="2">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($sexos as $sexo)
+                @foreach($municipios as $municipio)
                     <tr>
-                        <td>{{$sexo->id_sexo}}</td>
-                        <td>{{$sexo->descripcion}}</td>
+                        <td>{{$municipio->id_municipio}}</td>
+                        <td>{{$municipio->descripcion_mun}}</td>
                         <td>
-                            <form action="{{route("sexos.destroy",$sexo->id_sexo)}}" method="post">
+                            <form action="{{route("municipios.destroy",$municipio->id_municipio)}}" method="post">
                                 @csrf
                                 @method("DELETE")
                                 <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
                             </form>
                         </td>
                         <td>
-                            <a href="{{url("sexos",$sexo->id_sexo)}}/edit" class="btn btn-outline-success"><i class="far fa-edit"></i> </a>
+                            <a href="{{url("municipios",$municipio->id_municipio)}}/edit" class="btn btn-outline-success"><i class="far fa-edit"></i> </a>
                         </td>
                     </tr>
                 @endforeach

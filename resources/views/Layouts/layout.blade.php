@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="/">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -37,6 +37,33 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Tutores Internos
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="{{url("tinternos")}}">Mostrar</a>
+                        <a class="dropdown-item" href="{{url("tinternos")}}/create">Registrar</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Tutores Externos
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="{{url("texternos")}}">Mostrar</a>
+                        <a class="dropdown-item" href="{{url("texternos")}}/create">Registrar</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Coordinadores
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="{{url("coordinadores")}}">Mostrar</a>
+                        <a class="dropdown-item" href="{{url("coordinadores")}}/create">Registrar</a>
+                    </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
@@ -57,9 +84,25 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                      aria-labelledby="navbarDropdownMenuLink-333">
-                    <a class="dropdown-item" href="{{url("login")}}">Login</a>
-                    <a class="dropdown-item" href="{{url("register")}}">Register</a>
+                        @guest
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        @else
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        @endguest
                 </div>
             </li>
             </ul>
@@ -69,7 +112,7 @@
 
 
 </header>
-<main class="container">
+<main class="container pt-4">
     @yield("content")
 </main>
 <footer class="bg-white text-center">

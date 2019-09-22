@@ -19,6 +19,11 @@ Route::resources([
     'sexos'=>'SexosController',
     'semestres'=>'SemestresController',
     'carreras'=>'CarrerasController',
+    'municipios'=>'MunicipiosController',
+    'tinternos'=>'TinternosController',
+    'texternos'=>'TexternosController',
+    'coordinadores'=>'CoordinadoresController',
+
 
 
 ]);
