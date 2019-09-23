@@ -32,12 +32,17 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Alumnos
+                    </a>
+                    <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                        <a class="dropdown-item" href="{{url("alumnos")}}/create">Registrar</a>
+                        <a class="dropdown-item" href="{{url("alumnos")}}">Mostrar</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">Tutores Internos
@@ -67,12 +72,14 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">Alumnos
+                       aria-haspopup="true" aria-expanded="false">Registro de Datos para Administrador
                     </a>
                     <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
                         <a class="dropdown-item" href="{{url("sexos")}}">Sexos</a>
                         <a class="dropdown-item" href="{{url("semestres")}}">Semestres</a>
                         <a class="dropdown-item" href="{{url("carreras")}}">Carreras</a>
+                        <a class="dropdown-item" href="{{url("domicilios")}}">Domicilios</a>
+                        <a class="dropdown-item" href="{{url("instituciones")}}">Instituciones</a>
                     </div>
                 </li>
             </ul>

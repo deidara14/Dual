@@ -23,6 +23,9 @@ Route::resources([
     'tinternos'=>'TinternosController',
     'texternos'=>'TexternosController',
     'coordinadores'=>'CoordinadoresController',
+    'alumnos'=>'AlumnosController',
+    'domicilios'=>'DomiciliosController',
+    'instituciones'=>'InstitucionesController',
 
 
 
